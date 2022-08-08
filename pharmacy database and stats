@@ -1,0 +1,24 @@
+CREATE TABLE store (id integer primary key, name TEXT, price REAL, stocked INTEGER, purchasedperday INTEGER);
+
+INSERT INTO store VALUES
+(1, "shampoo", 4.50, 30, 5),
+(2, "conditioner", 5, 30, 4),
+(3, "toothpaste", 2.50, 50, 10),
+(4, "toothbrush", 2, 25, 2),
+(5, "deoderant", 3.50, 20, 4),
+(6, "mascara", 7, 20, 5),
+(7, "bar of soap", 1.25, 50, 20),
+(8, "razor", 10, 10, 1),
+(9, "lotion", 5.50, 20, 7),
+(10, "body wash", 5, 30, 6),
+(11, "dish soap", 6, 20, 4),
+(12, "sponge", 1, 40, 12),
+(13, "candy", 1, 100, 40),
+(14, "toilet paper", 12, 40, 10),
+(15, "paper towels", 11, 35, 8);
+
+SELECT * FROM store ORDER BY price asc;
+SELECT SUM(price) FROM store;
+SELECT MAX(purchasedperday) FROM store;
+SELECT * FROM store ORDER BY purchasedperday * price;
+
