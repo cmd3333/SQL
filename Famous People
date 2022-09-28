@@ -1,0 +1,50 @@
+/*famous people*/
+
+CREATE TABLE celebrities (id INTEGER PRIMARY KEY, name TEXT, mediatype TEXT, networth INTEGER);
+
+INSERT INTO celebrities (name, mediatype, networth)
+VALUES ("Tom Hanks", "movies", 400000000);
+INSERT INTO celebrities (name, mediatype, networth)
+VALUES 
+("Brad Pitt", "movies", 300000000), 
+("Meryl Streep", "movies", 160000000),
+("Jennifer Aniston", "TV", 320000000),
+("Jennifer Lopez", "movies", 400000000),
+("Taylor Swift", "singer", 400000000),
+("Bruno Mars", "singer", 175000000),
+("Jason Sudeikis", "TV", 75000000),
+("J.K. Rowling", "author", 1100000000),
+("Stephen King", "author", 500000000),
+("Angelina Jolie", "movies", 150000000);
+
+SELECT *
+FROM celebrities;
+
+
+CREATE TABLE stats (id INTEGER PRIMARY KEY, celebid INTEGER, age INTEGER, gender TEXT);
+
+INSERT INTO stats (celebid, age, gender)
+VALUES (1, 66, "male"),
+(2, 58, "male"),
+(3, 73, "female"),
+(4, 53, "female"),
+(5, 53, "female"),
+(6, 32, "female"),
+(7, 36, "male"),
+(8, 47, "male"),
+(9, 57, "female"),
+(10, 75, "male"),
+(11, 47, "female");
+
+SELECT * FROM stats;
+
+SELECT celebrities.name, celebrities.mediatype, celebrities.networth, stats.age, stats.gender FROM celebrities
+LEFT OUTER JOIN stats
+ON celebrities.id=stats.celebid
+ORDER BY networth asc;
+
+SELECT celebrities.name, celebrities.mediatype, celebrities.networth, stats.age, stats.gender FROM celebrities
+LEFT OUTER JOIN stats
+ON celebrities.id=stats.celebid
+WHERE gender="male"
+ORDER BY networth asc;
